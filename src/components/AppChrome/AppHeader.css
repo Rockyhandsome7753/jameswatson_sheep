@@ -1,0 +1,88 @@
+.app-header {
+  position: relative;
+  z-index: var(--z-sticky);
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex-shrink: 0;
+  height: calc(var(--header-h) + var(--safe-top));
+  padding: var(--safe-top) var(--space-4) 0;
+  background-color: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+
+/* ---- Brand ---- */
+.app-header__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-width: 0;
+}
+
+.app-header__logo {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  border-radius: var(--radius-sm);
+  flex-shrink: 0;
+}
+
+.app-header__name {
+  font-size: var(--text-md);
+  font-weight: var(--weight-semibold);
+  color: var(--navy);
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.app-header__name b {
+  color: var(--primary);
+  font-weight: var(--weight-semibold);
+}
+
+/* ---- Back ---- */
+.app-header__back {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  margin-inline-start: calc(var(--space-2) * -1);
+  border-radius: var(--radius-md);
+  color: var(--navy);
+  flex-shrink: 0;
+  transition: background-color var(--dur-fast) var(--ease-out);
+}
+
+.app-header__back:hover {
+  background-color: var(--surface-page);
+}
+
+.app-header__back svg {
+  transform: rotate(180deg);
+}
+
+/* ---- Center title ---- */
+.app-header__title {
+  flex: 1;
+  min-width: 0;
+  font-size: var(--text-md);
+  font-weight: var(--weight-semibold);
+  color: var(--navy);
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-inline: var(--space-2);
+}
+
+/* ---- Action slot ---- */
+.app-header__action {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-inline-start: auto;
+  flex-shrink: 0;
+}

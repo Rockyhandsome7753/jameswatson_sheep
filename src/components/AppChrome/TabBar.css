@@ -1,0 +1,71 @@
+.app-tabbar {
+  position: relative;
+  z-index: var(--z-sticky);
+  display: flex;
+  align-items: stretch;
+  flex-shrink: 0;
+  height: calc(var(--tabbar-h) + var(--safe-bottom));
+  padding-bottom: var(--safe-bottom);
+  background-color: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(14px) saturate(180%);
+  border-top: 1px solid var(--border);
+}
+
+.app-tabbar__tab {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  /* 48px minimum tap target height. */
+  min-height: 48px;
+  padding: var(--space-2) var(--space-1);
+  color: var(--text-subtle);
+  border-radius: var(--radius-md);
+  transition:
+    color var(--dur-fast) var(--ease-out),
+    background-color var(--dur-fast) var(--ease-out);
+}
+
+.app-tabbar__tab:active {
+  background-color: var(--surface-page);
+}
+
+.app-tabbar__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform var(--dur-base) var(--ease-out);
+}
+
+.app-tabbar__label {
+  font-size: 11px;
+  font-weight: var(--weight-medium);
+  line-height: 1;
+  letter-spacing: -0.01em;
+}
+
+/* Active tab: brand colour + slot indicator. */
+.app-tabbar__tab.is-active {
+  color: var(--primary);
+}
+
+.app-tabbar__tab.is-active .app-tabbar__icon {
+  transform: translateY(-1px);
+}
+
+.app-tabbar__tab.is-active::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 28px;
+  height: 2.5px;
+  border-radius: 0 0 var(--radius-full) var(--radius-full);
+  background-color: var(--primary);
+}
+
+/* The indicator is positioned against the tab, so tabs need positioning. */
+.app-tabbar__tab {
+  position: relative;
+}

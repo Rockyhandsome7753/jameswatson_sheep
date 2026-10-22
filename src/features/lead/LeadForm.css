@@ -1,0 +1,134 @@
+.lead {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.lead__field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  min-width: 0;
+}
+
+.lead__label {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  color: var(--navy);
+}
+
+.lead__input {
+  width: 100%;
+  height: 48px;
+  padding: 0 var(--space-4);
+  font-size: var(--text-md);
+  color: var(--text);
+  background-color: var(--surface);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-md);
+  transition:
+    border-color var(--dur-fast) var(--ease-out),
+    box-shadow var(--dur-fast) var(--ease-out);
+}
+
+.lead__input::placeholder {
+  color: var(--text-subtle);
+}
+
+.lead__input:hover:not(:focus) {
+  border-color: var(--border-focus);
+}
+
+.lead__input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-ring);
+}
+
+.lead__input.has-error,
+.lead__phone.has-error .lead__input {
+  border-color: var(--danger);
+}
+
+.lead__input.has-error:focus,
+.lead__phone.has-error .lead__input:focus {
+  box-shadow: 0 0 0 3px rgba(229, 72, 77, 0.3);
+}
+
+/* ---- Phone with +91 prefix ---- */
+.lead__phone {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-md);
+  background-color: var(--surface);
+  transition:
+    border-color var(--dur-fast) var(--ease-out),
+    box-shadow var(--dur-fast) var(--ease-out);
+  overflow: hidden;
+}
+
+.lead__phone:hover {
+  border-color: var(--border-focus);
+}
+
+.lead__phone:focus-within {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-ring);
+}
+
+.lead__phone.has-error {
+  border-color: var(--danger);
+}
+
+.lead__phone.has-error:focus-within {
+  box-shadow: 0 0 0 3px rgba(229, 72, 77, 0.3);
+}
+
+.lead__prefix {
+  display: inline-flex;
+  align-items: center;
+  height: 48px;
+  padding: 0 var(--space-3) 0 var(--space-4);
+  font-size: var(--text-md);
+  font-weight: var(--weight-medium);
+  color: var(--navy);
+  background-color: var(--surface-page);
+  border-right: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.lead__input--phone {
+  border: none;
+  border-radius: 0;
+  background-color: transparent;
+  letter-spacing: 0.02em;
+}
+
+.lead__input--phone:hover,
+.lead__input--phone:focus {
+  border: none;
+  box-shadow: none;
+  outline: none;
+}
+
+/* ---- Messages ---- */
+.lead__error {
+  font-size: var(--text-xs);
+  color: var(--danger);
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.lead__hint {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+}
+
+.lead__legal {
+  font-size: var(--text-xs);
+  color: var(--text-subtle);
+  text-align: center;
+  line-height: var(--leading-snug);
+}

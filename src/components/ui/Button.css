@@ -1,0 +1,153 @@
+.btn {
+  --btn-h: 40px;
+  --btn-px: var(--space-4);
+  --btn-fs: var(--text-base);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  height: var(--btn-h);
+  padding: 0 var(--btn-px);
+  font-size: var(--btn-fs);
+  font-weight: var(--weight-medium);
+  line-height: 1;
+  letter-spacing: -0.005em;
+  white-space: nowrap;
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+  transition:
+    background-color var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out),
+    box-shadow var(--dur-fast) var(--ease-out),
+    transform var(--dur-fast) var(--ease-out);
+}
+
+.btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.btn:not(:disabled):active {
+  transform: translateY(0.5px);
+}
+
+.btn__icon {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.btn__label {
+  display: inline-block;
+}
+
+/* ---- Sizes ---- */
+.btn--sm {
+  --btn-h: 32px;
+  --btn-px: var(--space-3);
+  --btn-fs: var(--text-sm);
+  border-radius: var(--radius-sm);
+}
+
+.btn--lg {
+  --btn-h: 48px;
+  --btn-px: var(--space-6);
+  --btn-fs: var(--text-md);
+  border-radius: var(--radius-lg);
+}
+
+.btn--block {
+  width: 100%;
+}
+
+/* ---- Primary: bright blue CTA ---- */
+.btn--primary {
+  background-color: var(--primary);
+  color: var(--c-white);
+  box-shadow: var(--shadow-primary);
+}
+
+.btn--primary:not(:disabled):hover {
+  background-color: var(--primary-hover);
+}
+
+.btn--primary:not(:disabled):active {
+  background-color: var(--primary-active);
+  box-shadow: none;
+}
+
+/* ---- Secondary: navy ---- */
+.btn--secondary {
+  background-color: var(--navy);
+  color: var(--text-inverse);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn--secondary:not(:disabled):hover {
+  background-color: var(--navy-hover);
+}
+
+/* ---- Outline: on white surfaces ---- */
+.btn--outline {
+  background-color: var(--surface);
+  color: var(--navy);
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-xs);
+}
+
+.btn--outline:not(:disabled):hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  background-color: var(--primary-tint);
+}
+
+/* ---- Ghost: low-emphasis, for toolbars ---- */
+.btn--ghost {
+  background-color: transparent;
+  color: var(--text-muted);
+}
+
+.btn--ghost:not(:disabled):hover {
+  background-color: var(--navy-soft);
+  color: var(--navy);
+}
+
+/* ---- Danger ---- */
+.btn--danger {
+  background-color: var(--danger);
+  color: var(--c-white);
+}
+
+.btn--danger:not(:disabled):hover {
+  background-color: #d13b40;
+}
+
+/* ---- Loading ---- */
+.btn--loading .btn__label {
+  opacity: 0.85;
+}
+
+.btn__spinner {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  animation: btn-spin 620ms linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes btn-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Icon-only buttons get a square shape via Button usage; keep a helper class */
+.btn--icon-only {
+  --btn-px: 0;
+  width: var(--btn-h);
+}

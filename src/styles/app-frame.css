@@ -1,0 +1,81 @@
+/* ==========================================================================
+   Mobile app frame.
+   The app is designed phone-first. On a real phone it fills the viewport
+   edge to edge. On a desktop browser it is presented inside a centred
+   phone-sized frame so the layout is never stretched out of proportion.
+   ========================================================================== */
+
+:root {
+  --app-max-w: 430px;      /* widest supported phone layout */
+  --header-h: 60px;
+  --tabbar-h: 64px;
+
+  /* Safe-area insets, with 0 fallbacks for browsers without env(). */
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-left: env(safe-area-inset-left, 0px);
+  --safe-right: env(safe-area-inset-right, 0px);
+}
+
+/* ---- The device frame ---- */
+.app-shell {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  margin: 0 auto;
+  background-color: var(--surface-page);
+  overflow: hidden;
+}
+
+/* Scrollable region between the fixed header and tab bar. */
+.app-scroll {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior-y: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* On tablet/desktop, content flows full width */
+@media (min-width: 480px) {
+  body {
+    padding: 0;
+  }
+}
+
+/* ---- Native-app feel on touch devices ---- */
+@media (hover: none) and (pointer: coarse) {
+  /* Remove the grey flash on tap. */
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Chrome should not be selectable like a document. */
+  .app-header,
+  .app-tabbar,
+  .app-btn,
+  button {
+    -webkit-user-select: none;
+    user-select: none;
+  }
+
+  /* Kill the rubber-band on the document itself; the inner region scrolls. */
+  html,
+  body {
+    overscroll-behavior-y: none;
+  }
+}
+
+/* On a real phone the frame is the screen edge-to-edge */
+@media (max-width: 479px) {
+  .app-shell {
+    max-width: 100%;
+    border-radius: 0;
+    box-shadow: none;
+    border: none;
+  }
+}

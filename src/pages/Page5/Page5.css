@@ -1,0 +1,211 @@
+.pg5 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100%;
+  padding: var(--space-6) var(--space-4);
+}
+
+.pg5__card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding: var(--space-6);
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-md);
+  text-align: center;
+}
+
+.pg5__title {
+  font-size: var(--text-xl);
+  font-weight: var(--weight-bold);
+  color: var(--navy);
+}
+
+.pg5__text {
+  font-size: var(--text-base);
+  color: var(--text-muted);
+}
+
+.pg5__form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  text-align: left;
+}
+
+.pg5__field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.pg5__label {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  color: var(--navy);
+}
+
+.pg5__input {
+  width: 100%;
+  height: 48px;
+  padding: 0 var(--space-4);
+  font-size: var(--text-base);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-md);
+}
+
+.pg5__error {
+  font-size: var(--text-xs);
+  color: var(--danger);
+}
+
+.pg5-loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100%;
+  padding: var(--space-6);
+}
+
+.pg5-loader__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-6);
+  background-color: var(--surface);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-md);
+}
+
+.pg5-loader__spinner {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 4px solid var(--border);
+  border-top-color: var(--primary);
+  animation: spin 1s linear infinite;
+}
+
+.pg5-loader__text {
+  font-size: var(--text-base);
+  font-weight: var(--weight-semibold);
+  color: var(--navy);
+}
+
+.pg5-loader__sub {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+}
+
+/* ---- Success screen ---- */
+.pg5__success {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-6) var(--space-5);
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-md);
+  text-align: center;
+}
+
+.pg5__success-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background-color: var(--success-tint);
+  color: var(--success);
+}
+
+.pg5__success-title {
+  font-size: var(--text-xl);
+  font-weight: var(--weight-bold);
+  color: var(--navy);
+  letter-spacing: -0.025em;
+}
+
+.pg5__success-text {
+  font-size: var(--text-base);
+  color: var(--text-muted);
+  line-height: var(--leading-snug);
+}
+
+.pg5__success-text b {
+  color: var(--navy);
+  font-weight: var(--weight-semibold);
+}
+
+.pg5__summary {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background-color: var(--surface-page);
+  text-align: left;
+}
+
+.pg5__summary-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: var(--space-3) var(--space-4);
+}
+
+.pg5__summary-row + .pg5__summary-row {
+  border-top: 1px solid var(--border);
+}
+
+.pg5__summary-row dt {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
+.pg5__summary-row dd {
+  font-size: var(--text-base);
+  font-weight: var(--weight-medium);
+  color: var(--navy);
+  text-align: right;
+  word-break: break-word;
+  min-width: 0;
+}
+
+.pg5__summary-row--total {
+  background-color: var(--primary-tint);
+}
+
+.pg5__summary-row--total dt,
+.pg5__summary-row--total dd {
+  color: var(--primary-active);
+  font-weight: var(--weight-bold);
+}
+
+.pg5__ref {
+  font-family: var(--font-mono, ui-monospace, "SFMono-Regular", monospace);
+  letter-spacing: 0.04em;
+}
+
+.pg5__note {
+  font-size: var(--text-xs);
+  color: var(--text-subtle);
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
