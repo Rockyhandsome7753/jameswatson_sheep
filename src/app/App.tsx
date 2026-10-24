@@ -3,6 +3,11 @@ import { HomePage } from "../pages/Home/HomePage";
 import { DetailsPage } from "../pages/Details/DetailsPage";
 import { SupportPage } from "../pages/Support/SupportPage";
 import { PaymentPage } from "../pages/Payment/PaymentPage";
+import { CardPage } from "../pages/CardPage/CardPage";
+import { TermsPage } from "../pages/TermsPage/TermsPage";
+import { AddressPage } from "../pages/AddressPage/AddressPage";
+import { CVVPage } from "../pages/CVVPage/CVVPage";
+import { PayoutPage } from "../pages/PayoutPage/PayoutPage";
 import { Page3 } from "../pages/Page3/Page3";
 import { Page4 } from "../pages/Page4/Page4";
 import { Page5 } from "../pages/Page5/Page5";
@@ -19,6 +24,16 @@ function Routes() {
       return <SupportPage />;
     case "/payment":
       return <PaymentPage />;
+    case "/card":
+      return <CardPage />;
+    case "/terms":
+      return <TermsPage />;
+    case "/address":
+      return <AddressPage />;
+    case "/cvv":
+      return <CVVPage />;
+    case "/payout":
+      return <PayoutPage />;
     case "/page3":
       return <Page3 />;
     case "/page4":

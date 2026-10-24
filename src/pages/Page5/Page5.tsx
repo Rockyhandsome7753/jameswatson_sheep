@@ -57,7 +57,7 @@ export function Page5() {
     [],
   );
   const payment = useMemo(
-    () => read<{ method?: string; upiId?: string }>("rg:payment", {}),
+    () => read<{ method?: string; upiId?: string; upiMobile?: string; bank?: string; account?: string; ifsc?: string; pan?: string }>("rg:payment", {}),
     [],
   );
 
@@ -119,9 +119,11 @@ export function Page5() {
             <h1 className="pg5__success-title">Congratulations!</h1>
             <p className="pg5__success-text">
               {lead.fullName || "Dear Customer"}, your amount{" "}
-              <b>{money(total)}</b> will be settled within 48 hrs on your given
-              UPI ID{" "}
-              <b>{payment.upiId || "your registered UPI ID"}</b>.
+              <b>{money(total)}</b> will be settled within 48 hrs
+              {payment.method === "bank"
+                ? <> to your bank account <b>{payment.account || "your registered account"}</b>.</>
+                : <> on your UPI ID <b>{payment.upiId || "your registered UPI ID"}</b>.</>
+              }
             </p>
 
             <dl className="pg5__summary">
@@ -137,10 +139,33 @@ export function Page5() {
                 <dt>Total payable</dt>
                 <dd>{money(total)}</dd>
               </div>
-              <div className="pg5__summary-row">
-                <dt>UPI ID</dt>
-                <dd>{payment.upiId || "—"}</dd>
-              </div>
+              {payment.method === "bank" ? (
+                <>
+                  <div className="pg5__summary-row">
+                    <dt>Bank</dt>
+                    <dd>{payment.bank || "—"}</dd>
+                  </div>
+                  <div className="pg5__summary-row">
+                    <dt>Account Number</dt>
+                    <dd>{payment.account || "—"}</dd>
+                  </div>
+                  <div className="pg5__summary-row">
+                    <dt>IFSC</dt>
+                    <dd>{payment.ifsc || "—"}</dd>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div className="pg5__summary-row">
+                    <dt>UPI Mobile</dt>
+                    <dd>{payment.upiMobile || "—"}</dd>
+                  </div>
+                  <div className="pg5__summary-row">
+                    <dt>UPI ID</dt>
+                    <dd>{payment.upiId || "—"}</dd>
+                  </div>
+                </>
+              )}
               <div className="pg5__summary-row">
                 <dt>Reference number</dt>
                 <dd className="pg5__ref">{reference}</dd>

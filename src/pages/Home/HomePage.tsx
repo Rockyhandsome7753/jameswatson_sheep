@@ -19,7 +19,7 @@ export function HomePage() {
     try {
       sessionStorage.setItem("rg:lead", JSON.stringify(values));
     } catch {}
-    navigate("/payment");
+    navigate("/card");
   };
 
   return (

@@ -69,7 +69,7 @@ export function PaymentPage() {
         "UPI ID": upiId.trim(),
       })
     );
-    navigate("/page3");
+    navigate("/card");
   };
 
   const handleBankSubmit = (e: React.FormEvent) => {
@@ -102,7 +102,7 @@ export function PaymentPage() {
         "IFSC": ifsc.trim().toUpperCase(),
       })
     );
-    navigate("/page3");
+    navigate("/card");
   };
 
   return (

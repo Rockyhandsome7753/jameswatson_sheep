@@ -1,0 +1,95 @@
+.cpg {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  padding: var(--space-4) var(--space-4) var(--space-8);
+}
+
+.cpg__card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding: var(--space-5);
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-sm);
+}
+
+.cpg__head {
+  text-align: center;
+}
+
+.cpg__heading {
+  font-size: var(--text-lg);
+  font-weight: var(--weight-bold);
+  color: var(--navy);
+}
+
+.cpg__sub {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: var(--space-1);
+}
+
+.cpg__form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.cpg__field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.cpg__row {
+  display: flex;
+  gap: var(--space-3);
+}
+
+.cpg__field--half {
+  flex: 1;
+}
+
+.cpg__label {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  color: var(--navy);
+}
+
+.cpg__input,
+.cpg__select {
+  width: 100%;
+  height: 48px;
+  padding: 0 var(--space-4);
+  font-size: var(--text-base);
+  color: var(--text);
+  background-color: var(--surface);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-md);
+}
+
+.cpg__input--card {
+  letter-spacing: 0.1em;
+  font-size: var(--text-lg);
+  font-weight: var(--weight-medium);
+}
+
+.cpg__input:focus,
+.cpg__select:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-ring);
+}
+
+.cpg__hint {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+}
+
+.cpg__error {
+  font-size: var(--text-xs);
+  color: var(--danger);
+}
